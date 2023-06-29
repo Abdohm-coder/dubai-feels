@@ -5,8 +5,6 @@ import DefaultHeader from "../components/header/default-header";
 import DefaultFooter from "../components/footer/default";
 import TopDestinations2 from "../components/destinations/TopDestinations2";
 import Faq from "../components/faq/Faq";
-import TestimonialLeftCol from "../components/home/home-1/TestimonialLeftCol";
-import Testimonial from "../components/home/home-1/Testimonial";
 import Link from "next/link";
 import Slights from "../components/block/Slights";
 import Blog from "../components/blog/Blog3";
@@ -21,6 +19,8 @@ import Tours from "../components/tours/Tours";
 import Activity from "../components/activity/Activity";
 import Rentals from "../components/rentals/Rentals";
 import Hotels from "../components/hotels/Hotels2";
+import TestimonialLeftCol from "../components/destinations/TestimonialLeftCol";
+import Testimonial from "../components/destinations/Testimonial";
 
 const Destinations = () => {
   return (
