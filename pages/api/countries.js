@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export default async function handler (_, res) {
     try{
         const response = await axios.get("https://www.raynab2b.com/api/Tour/countries");
