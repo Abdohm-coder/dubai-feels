@@ -76,12 +76,6 @@ const Header1 = () => {
                 {/* Start btn-group */}
                 <div className="header__buttons d-flex items-center is-menu-opened-hide">
                   <Link
-                    href="/others-pages/login"
-                    className="button h-50 px-30 fw-400 text-14 -blue-1 bg-white text-dark-1 sm:d-none"
-                  >
-                    Become An Expert
-                  </Link>
-                  <Link
                     href="/others-pages/signup"
                     className="button h-50 px-30 fw-400 text-14 -outline-white text-white ml-20 sm:ml-0"
                   >

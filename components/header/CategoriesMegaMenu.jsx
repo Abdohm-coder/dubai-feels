@@ -13,13 +13,17 @@ const CategoriesMegaMenu = () => {
   const router = useRouter();
 
   const itemList = [
-    "Hotel",
-    "Tour",
-    "Activity",
-    "Holiday Rentals",
-    "Car",
-    "Cruise",
-    "Flights",
+    "Flying Experiences",
+    "Desert Safari",
+    "City Tours",
+    "Cruises",
+    "Water Activities",
+    "Theme Parks & Water Parks",
+    "Limousine Tours",
+    "Luxury Yacht Tours",
+    { name: "Private Transfers", routePath: "/private-transfers" },
+    { name: "Adventure Tours", routePath: "/adventure-tours" },
+    { name: "Sightseeing", routePath: "/sightseeing" },
   ];
 
   return (
@@ -27,8 +31,13 @@ const CategoriesMegaMenu = () => {
       <TabList className="tabs__controls row x-gap-40 y-gap-10 lg:x-gap-20 pb-30 js-tabs-controls">
         {itemList.map((item, i) => (
           <Tab className="col-auto" key={i}>
-            <button className="tabs__button text-light-1 fw-500 js-tabs-button">
-              {item}
+            <button
+              onClick={() => {
+                if (typeof item !== "string")
+                  router.push(`/dubai-activities${item.routePath}`);
+              }}
+              className="tabs__button text-light-1 fw-500 js-tabs-button">
+              {typeof item === "string" ? item : item.name}
             </button>
           </Tab>
         ))}
@@ -37,55 +46,23 @@ const CategoriesMegaMenu = () => {
 
       <div className="tabs__content js-tabs-content">
         {categorieMegaMenuItems.map((megaMenu) => (
-          <TabPanel key={megaMenu.id}>
+          <TabPanel className={"row"} key={megaMenu.id}>
             {megaMenu?.menuCol?.map((megaCol, i) => (
-              <ul className="mega__content" key={i}>
-                <li className="mega__grid">
-                  {megaCol?.menuItems?.map((item) => (
-                    <div className="mega__item" key={item.id}>
-                      <div className="text-15 fw-500">{item.title}</div>
-                      <div className="y-gap-5 text-15 pt-5">
-                        {item?.menuList?.map((list, i) => (
-                          <div
-                            key={i}
-                            className={
-                              isActiveLink(list.routePath, router.asPath)
-                                ? "current"
-                                : ""
-                            }
-                          >
-                            <Link href={list.routePath}>{list.name}</Link>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </li>
-                {/* End mega menu list left */}
-
-                <li className="mega__image d-flex relative">
-                  <Image
-                    width={270}
-                    height={300}
-                    src={megaCol?.megaBanner}
-                    alt="image"
-                    className="rounded-4 js-lazy"
-                  />
-
-                  <div className="absolute w-full h-full px-30 py-24">
-                    <div className="text-22 fw-500 lh-15 text-white">
-                      {megaCol?.title}
-                    </div>
-                    <Link
-                      href={megaCol?.btnRoute}
-                      className="button text-uppercase h-50 px-30 -blue-1 text-dark-1 bg-white mt-20 d-inline-flex"
-                    >
-                      {megaCol?.btnText}
-                    </Link>
-                  </div>
-                </li>
-                {/* End mega menu right images */}
-              </ul>
+              <div
+                key={i}
+                className={`col-4
+                  ${
+                    isActiveLink(
+                      `/dubai-activities${megaCol.routePath}`,
+                      router.asPath
+                    )
+                      ? "current"
+                      : ""
+                  }}`}>
+                <Link href={`/dubai-activities${megaCol.routePath}`}>
+                  {megaCol.name}
+                </Link>
+              </div>
             ))}
           </TabPanel>
         ))}
