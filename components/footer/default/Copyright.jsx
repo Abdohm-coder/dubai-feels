@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Social from "../../common/social/Social";
 
 const Copyright = () => {
@@ -8,14 +9,13 @@ const Copyright = () => {
           <div className="col-auto">
             <div className="d-flex items-center">
               © {new Date().getFullYear()} by
-              <a
+              <span
                 href="https://themeforest.net/user/ib-themes"
                 className="mx-2"
                 target="_blank"
-                rel="noopener noreferrer"
-              >
-                ib-themes
-              </a>
+                rel="noopener noreferrer">
+                DubaiFeel.com
+              </span>
               All rights reserved.
             </div>
           </div>
@@ -23,40 +23,13 @@ const Copyright = () => {
 
           <div className="col-auto">
             <div className="d-flex x-gap-15">
-              <a href="#">Privacy</a>
-              <a href="#">Terms</a>
-              <a href="#">Site Map</a>
+              <Link href="/terms-and-conditions">Terms</Link>
+              <Link href="/sitemap">Site Map</Link>
             </div>
           </div>
           {/* End .col */}
         </div>
         {/* End .row */}
-      </div>
-      {/* End .col */}
-
-      <div className="col-auto">
-        <div className="row y-gap-10 items-center">
-          <div className="col-auto">
-            <div className="d-flex items-center">
-              <button className="d-flex items-center text-14 fw-500 text-dark-1 mr-10">
-                <i className="icon-globe text-16 mr-10" />
-                <span className="underline">English (US)</span>
-              </button>
-              <button className="d-flex items-center text-14 fw-500 text-dark-1">
-                <i className="icon-usd text-16 mr-10" />
-                <span className="underline">USD</span>
-              </button>
-            </div>
-          </div>
-          {/* End .col */}
-
-          <div className="col-auto">
-            <div className="d-flex x-gap-20 items-center">
-              <Social />
-            </div>
-          </div>
-          {/* End .col */}
-        </div>
       </div>
       {/* End .col */}
     </div>

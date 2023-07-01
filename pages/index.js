@@ -6,15 +6,6 @@ import Hero5 from "../components/hero/hero-5";
 import Link from "next/link";
 import Footer4 from "../components/footer/footer-4";
 import Tours2 from "../components/tours/Tours2";
-import TourCategories from "../components/home/home-5/TourCategories";
-import Locations from "../components/home/home-5/Locations";
-import CallToActions from "../components/home/home-5/CallToActions";
-import Tours3 from "../components/tours/Tours3";
-import DiscountsBanner from "../components/home/home-5/DiscountsBanner";
-import Counter3 from "../components/counter/Counter3";
-import WhyChooseUs from "../components/home/home-5/WhyChooseUs";
-import Testimonial from "../components/home/home-5/Testimonial";
-import Brand2 from "../components/brand/Brand2";
 
 import { useEffect } from "react";
 import axios from "axios";

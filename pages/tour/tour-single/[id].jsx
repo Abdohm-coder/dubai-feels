@@ -244,12 +244,12 @@ const TourSingleV1Dynamic = () => {
       </section>
       {/* End important info */}
 
-      <section className="border-top-light  mt-40 pt-40">
+      {/* <section className="border-top-light  mt-40 pt-40">
         <div className="container">
           <h3 className="text-22 fw-500 mb-20">Itinerary</h3>
           <Itinerary />
         </div>
-      </section>
+      </section> */}
       {/* End Itinerary */}
 
       <section className="mt-40">
