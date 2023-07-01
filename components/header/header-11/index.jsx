@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import MainMenu from "../MainMenu";
-import CurrenctyMegaMenu from "../CurrenctyMegaMenu";
-import LanguageMegaMenu from "../LanguageMegaMenu";
 
 import MobileMenu from "../MobileMenu";
 

@@ -20,6 +20,10 @@ const MainMenu = ({ style = "" }) => {
   return (
     <nav className="menu js-navList">
       <ul className={`menu__nav ${style} -is-active`}>
+        <li className={router.pathname === "/about" ? "current" : ""}>
+          <Link href="/about">About</Link>
+        </li>
+        {/* End about menu items */}
         <li className="menu-item-has-children -has-mega-menu">
           <a href="#">
             <span className="mr-10">Experiences</span>
@@ -30,10 +34,7 @@ const MainMenu = ({ style = "" }) => {
           </div>
         </li>
         {/* End categories menu items */}
-        <li className={router.pathname === "/about" ? "current" : ""}>
-          <Link href="/about">About</Link>
-        </li>
-        {/* End about menu items */}
+
         <li className={router.pathname === "/contact" ? "current" : ""}>
           <Link href="/contact">Contact</Link>
         </li>

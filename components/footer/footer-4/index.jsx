@@ -18,16 +18,6 @@ const index = () => {
               </div>
               {/* End .row */}
 
-              <div className="row x-gap-20 y-gap-15 pt-60">
-                <div className="col-12">
-                  <h5 className="text-16 fw-500">Your all-in-one travel app</h5>
-                </div>
-                {/* End .col */}
-
-                <AppButton />
-              </div>
-              {/* End .row */}
-
               <div className="mt-60">
                 <h5 className="text-16 fw-500 mb-10">
                   Follow us on social media

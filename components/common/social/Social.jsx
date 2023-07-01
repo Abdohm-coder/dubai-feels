@@ -1,9 +1,16 @@
 const Social = () => {
   const socialContent = [
-    { id: 1, icon: "icon-facebook", link: "https://facebok.com/" },
-    { id: 2, icon: "icon-twitter", link: "https://twitter.com/" },
-    { id: 3, icon: "icon-instagram", link: "https://instagram.com/" },
-    { id: 4, icon: "icon-linkedin", link: "https://linkedin.com/" },
+    {
+      id: 1,
+      icon: "icon-facebook",
+      link: "https://www.facebook.com/dubaifeel/",
+    },
+    { id: 2, icon: "icon-twitter", link: "https://twitter.com/DubaiFeel" },
+    {
+      id: 3,
+      icon: "icon-instagram",
+      link: "https://www.instagram.com/dubaifeel/",
+    },
   ];
   return (
     <>
@@ -12,8 +19,7 @@ const Social = () => {
           href={item.link}
           target="_blank"
           rel="noopener noreferrer"
-          key={item.id}
-        >
+          key={item.id}>
           <i className={`${item.icon} text-14`} />
         </a>
       ))}

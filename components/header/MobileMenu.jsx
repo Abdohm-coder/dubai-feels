@@ -38,8 +38,7 @@ const MobileMenu = () => {
         <div
           className="fix-icon"
           data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        >
+          aria-label="Close">
           <i className="icon icon-close"></i>
         </div>
         {/* icon close */}
@@ -49,134 +48,67 @@ const MobileMenu = () => {
       <ProSidebarProvider>
         <Sidebar width="400" backgroundColor="#fff">
           <Menu>
-            <SubMenu label="Home">
-              {homeItems.map((item, i) => (
-                <MenuItem
-                  key={i}
-                  component={
-                    <Link
-                      href={item.routePath}
-                      className={
-                        isActiveLink(item.routePath, router.asPath)
-                          ? "menu-active-link"
-                          : ""
-                      }
-                    />
+            <MenuItem
+              component={
+                <Link
+                  href="/about"
+                  className={
+                    router.pathname === "/about" ? "menu-active-link" : ""
                   }
-                >
-                  {item.name}
-                </MenuItem>
-              ))}
-            </SubMenu>
-            {/* End  All Home Menu */}
+                />
+              }>
+              About
+            </MenuItem>
+            {/* End About  Menu */}
 
-            <SubMenu label="Categories">
+            <SubMenu label="Experiences">
               {categorieMobileItems.map((item) => (
-                <SubMenu label={item.title} key={item.id}>
-                  {item.menuItems.map((single) => (
-                    <SubMenu label={single.title} key={single.id}>
-                      {single.menuList.map((menu, i) => (
+                <>
+                  {item.routePath ? (
+                    <MenuItem
+                      key={`item-${item.title}`}
+                      component={
+                        <Link
+                          href={`/dubai-activities${item.routePath}`}
+                          className={
+                            isActiveLink(
+                              `/dubai-activities${item.routePath}`,
+                              router.asPath
+                            )
+                              ? "menu-active-link"
+                              : ""
+                          }
+                        />
+                      }>
+                      {item.title}
+                    </MenuItem>
+                  ) : (
+                    <SubMenu label={item.title} key={item.id}>
+                      {item.menuItems.map((menu) => (
                         <MenuItem
-                          key={i}
+                          key={`item-${menu.name}`}
                           component={
                             <Link
-                              href={menu.routePath}
+                              href={`/dubai-activities${menu.routePath}`}
                               className={
-                                isActiveLink(menu.routePath, router.asPath)
+                                isActiveLink(
+                                  `/dubai-activities${menu.routePath}`,
+                                  router.asPath
+                                )
                                   ? "menu-active-link"
                                   : ""
                               }
                             />
-                          }
-                        >
+                          }>
                           {menu.name}
                         </MenuItem>
                       ))}
                     </SubMenu>
-                  ))}
-                </SubMenu>
+                  )}
+                </>
               ))}
             </SubMenu>
             {/* End  All Categories Menu */}
-
-            <MenuItem
-              component={
-                <Link
-                  href="/destinations"
-                  className={
-                    router.pathname === "/destinations"
-                      ? "menu-active-link"
-                      : ""
-                  }
-                />
-              }
-            >
-              Desitinations
-            </MenuItem>
-            {/* End  Desitinations Menu */}
-
-            <SubMenu label="Blog">
-              {blogItems.map((item, i) => (
-                <MenuItem
-                  key={i}
-                  component={
-                    <Link
-                      href={item.routePath}
-                      className={
-                        isActiveLink(item.routePath, router.asPath)
-                          ? "menu-active-link"
-                          : ""
-                      }
-                    />
-                  }
-                >
-                  {item.name}
-                </MenuItem>
-              ))}
-            </SubMenu>
-            {/* End  All Blog Menu */}
-
-            <SubMenu label="Pages">
-              {pageItems.map((item, i) => (
-                <MenuItem
-                  key={i}
-                  component={
-                    <Link
-                      href={item.routePath}
-                      className={
-                        isActiveLink(item.routePath, router.asPath)
-                          ? "menu-active-link"
-                          : ""
-                      }
-                    />
-                  }
-                >
-                  {item.name}
-                </MenuItem>
-              ))}
-            </SubMenu>
-            {/* End  All Pages Menu */}
-
-            <SubMenu label="Dashboard">
-              {dashboardItems.map((item, i) => (
-                <MenuItem
-                  key={i}
-                  component={
-                    <Link
-                      href={item.routePath}
-                      className={
-                        isActiveLink(item.routePath, router.asPath)
-                          ? "menu-active-link"
-                          : ""
-                      }
-                    />
-                  }
-                >
-                  {item.name}
-                </MenuItem>
-              ))}
-            </SubMenu>
-            {/* End  All Dashboard Menu */}
 
             <MenuItem
               component={
@@ -186,8 +118,7 @@ const MobileMenu = () => {
                     router.pathname === "/contact" ? "menu-active-link" : ""
                   }
                 />
-              }
-            >
+              }>
               Contact
             </MenuItem>
             {/* End Contact  Menu */}
@@ -204,14 +135,6 @@ const MobileMenu = () => {
           <div className="d-flex x-gap-20 items-center">
             <Social />
           </div>
-        </div>
-        <div className="mt-20">
-          <Link
-            className=" button -dark-1 px-30 fw-400 text-14 bg-blue-1 h-50 text-white"
-            href="/others-pages/login"
-          >
-            Become An Expert
-          </Link>
         </div>
       </div>
       {/* End pro-footer */}

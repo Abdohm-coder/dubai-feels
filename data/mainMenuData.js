@@ -414,244 +414,298 @@ export const categorieMegaMenuItems = [
 export const categorieMobileItems = [
   {
     id: 1,
-    title: "Hotel",
+    title: "Flying Experiences",
     menuItems: [
       {
-        id: 1,
-        title: "Hotel List",
-        menuList: [
-          {
-            name: "Hotel List v1",
-            routePath: "/hotel/hotel-list-v1",
-          },
-          {
-            name: "Hotel List v2",
-            routePath: "/hotel/hotel-list-v2",
-          },
-          {
-            name: "Hotel List v3",
-            routePath: "/hotel/hotel-list-v3",
-          },
-          {
-            name: "Hotel List v4",
-            routePath: "/hotel/hotel-list-v4",
-          },
-          {
-            name: "Hotel List v5",
-            routePath: "/hotel/hotel-list-v5",
-          },
-        ],
+        name: "Helicopter Flights",
+        routePath: "/flying-experiences/helicopter-flights",
       },
       {
-        id: 2,
-        title: "Hotel Single",
-        menuList: [
-          {
-            name: "Hotel Single v1",
-            routePath: "/hotel/hotel-single-v1/5",
-          },
-          {
-            name: "Hotel Single v2",
-            routePath: "/hotel/hotel-single-v2/5",
-          },
-        ],
+        name: "Paragliding",
+        routePath: "/flying-experiences/paragliding",
       },
       {
-        id: 3,
-        title: "Hotel Booking",
-        menuList: [
-          {
-            name: "Booking Page",
-            routePath: "/hotel/booking-page",
-          },
-        ],
+        name: "Skydiving",
+        routePath: "/flying-experiences/skydiving",
+      },
+      {
+        name: "Hot Air Ballooning",
+        routePath: "/flying-experiences/hot-air-ballooning",
+      },
+      {
+        name: "Flights",
+        routePath: "/flying-experiences/flights",
       },
     ],
   },
   {
     id: 2,
-    title: "Tour",
+    title: "Desert Safari",
     menuItems: [
       {
-        id: 1,
-        title: "Tour List",
-        menuList: [
-          {
-            name: "Tour List v1",
-            routePath: "/tour/tour-list-v1",
-          },
-          {
-            name: "Tour List v2",
-            routePath: "/tour/tour-list-v2",
-          },
-        ],
+        name: "Evening Desert Safari",
+        routePath: "/desert-safari/evening-desert-safari",
       },
       {
-        id: 2,
-        title: "Tour Pages",
-        menuList: [
-          {
-            name: "Tour Map",
-            routePath: "/tour/tour-list-v3",
-          },
-          {
-            name: "Tour Single",
-            routePath: "/tour/tour-single/5",
-          },
-        ],
+        name: "Private Desert Safari Tour",
+        routePath: "/desert-safari/private-desert-safari-tour",
+      },
+      {
+        name: "Morning Dune Bashing",
+        routePath: "/desert-safari/morning-dune-bashing",
+      },
+      {
+        name: "Morning Desert Safari Combo with Quad Bike , Camel Ride & Sandboarding",
+        routePath:
+          "/desert-safari/morning-desert-safari-combo-with-quad-bike-camel-ride-sandboarding",
+      },
+      {
+        name: "Desert Safari in Hummer",
+        routePath: "/desert-safari/desert-safari-in-hummer",
+      },
+      {
+        name: "Quad Bike",
+        routePath: "/desert-safari/quad-bike",
+      },
+      {
+        name: "Camel Riding Tours",
+        routePath: "/desert-safari/camel-riding-tours",
+      },
+      {
+        name: "Desert Safari & Quad Bike",
+        routePath: "/desert-safari/desert-safari-quad-bike",
+      },
+      {
+        name: "Overnight Desert Safari",
+        routePath: "/desert-safari/overnight-desert-safari",
       },
     ],
   },
   {
     id: 3,
-    title: "Activity",
+    title: "City Tours",
     menuItems: [
       {
-        id: 1,
-        title: "Activity List",
-        menuList: [
-          {
-            name: "Activity List v1",
-            routePath: "/activity/activity-list-v1",
-          },
-          {
-            name: "Activity List v2",
-            routePath: "/activity/activity-list-v2",
-          },
-        ],
+        name: "City Tour",
+        routePath: "/city-tours/city-tour",
       },
       {
-        id: 2,
-        title: "Activity Pages",
-        menuList: [
-          {
-            name: "Activity Map",
-            routePath: "/activity/activity-list-v3",
-          },
-          {
-            name: "Activity Single",
-            routePath: "/activity/activity-single/3",
-          },
-        ],
+        name: "Abu Dhabi City Tour",
+        routePath: "/city-tours/abu-dhabi-city-tour",
+      },
+      {
+        name: "Private Night Tour",
+        routePath: "/city-tours/private-night-tour",
+      },
+      {
+        name: "Al-Ain City Tour",
+        routePath: "/city-tours/al-ain-city-tour",
+      },
+      {
+        name: "Fujairah City Tour",
+        routePath: "/city-tours/fujairah-city-tour",
+      },
+      {
+        name: "Six Emirates Tour",
+        routePath: "/city-tours/six-emirates-tour",
+      },
+      {
+        name: "City Tour with At the Top Burj Khalifa",
+        routePath: "/city-tours/city-tour-with-at-the-top-burj-khalifa",
+      },
+      {
+        name: "Hatta Mountain Tour",
+        routePath: "/city-tours/hatta-mountain-tour",
+      },
+      {
+        name: "Hatta Mountain & Kayak Tour",
+        routePath: "/city-tours/hatta-mountain-kayak-tour",
+      },
+      {
+        name: "Louvre Abu Dhabi",
+        routePath: "/city-tours/louvre-abu-dhabi",
       },
     ],
   },
   {
     id: 4,
-    title: "Hotel Rentals",
+    title: "Cruises",
     menuItems: [
       {
-        id: 1,
-        title: "Rental List",
-        menuList: [
-          {
-            name: "Rental List v1",
-            routePath: "/rental/rental-list-v1",
-          },
-          {
-            name: "Rental List v2",
-            routePath: "/rental/rental-list-v2",
-          },
-        ],
+        name: "Dhow Cruise Dinner",
+        routePath: "/cruises/dhow-cruise-dinner",
       },
       {
-        id: 2,
-        title: "Rental Pages",
-        menuList: [
-          {
-            name: "Rental Map",
-            routePath: "/rental/rental-list-v3",
-          },
-          {
-            name: "Rental Single",
-            routePath: "/rental/rental-single/3",
-          },
-        ],
+        name: "Marina Cruise Dinner",
+        routePath: "/cruises/marina-cruise-dinner",
+      },
+      {
+        name: "House Boat Dinner Marina",
+        routePath: "/cruises/house-boat-dinner-marina",
+      },
+      {
+        name: "Dhow Cruise Dinner 5 Star",
+        routePath: "/cruises/dhow-cruise-dinner-5-star",
       },
     ],
   },
   {
     id: 5,
-    title: "Car",
+    title: "Water Activities",
     menuItems: [
       {
-        id: 1,
-        title: "Car List",
-        menuList: [
-          {
-            name: "Car List v1",
-            routePath: "/car/car-list-v1",
-          },
-          {
-            name: "Car List v2",
-            routePath: "/car/car-list-v2",
-          },
-        ],
+        name: "Hatta Mountain & Kayak Tour",
+        routePath: "/water-activities/hatta-mountain-kayak-tour",
       },
       {
-        id: 2,
-        title: "Car Pages",
-        menuList: [
-          {
-            name: "Car Map",
-            routePath: "/car/car-list-v3",
-          },
-          {
-            name: "Car Single",
-            routePath: "/car/car-single/1",
-          },
-        ],
+        name: "Scuba Diving",
+        routePath: "/water-activities/scuba-diving",
+      },
+      {
+        name: "Parasailing",
+        routePath: "/water-activities/parasailing",
+      },
+      {
+        name: "Boat Tours",
+        routePath: "/water-activities/boat-tours",
+      },
+      {
+        name: "Kayaking",
+        routePath: "/water-activities/kayaking",
+      },
+      {
+        name: "Jet Ski Ride",
+        routePath: "/water-activities/jet-ski-ride",
+      },
+      {
+        name: "Flyboarding",
+        routePath: "/water-activities/flyboarding",
+      },
+      {
+        name: "Donut Boat Ride",
+        routePath: "/water-activities/donut-boat-ride",
+      },
+      {
+        name: "Banana Boat Ride",
+        routePath: "/water-activities/banana-boat-ride",
+      },
+      {
+        name: "Snorkeling",
+        routePath: "/water-activities/snorkeling",
+      },
+      {
+        name: "Dolphin Bay",
+        routePath: "/water-activities/dolphin-bay",
       },
     ],
   },
   {
     id: 6,
-    title: "Cruise",
+    title: "Theme Parks & Water Parks",
     menuItems: [
       {
-        id: 1,
-        title: "Cruise List",
-        menuList: [
-          {
-            name: "Cruise List v1",
-            routePath: "/cruise/cruise-list-v1",
-          },
-          {
-            name: "Cruise List v2",
-            routePath: "/cruise/cruise-list-v2",
-          },
-        ],
+        name: "Aquaventure Waterpark",
+        routePath: "/theme-parks-water-parks/aquaventure-waterpark",
       },
       {
-        id: 2,
-        title: "Cruise Pages",
-        menuList: [
-          {
-            name: "Cruise Map",
-            routePath: "/cruise/cruise-list-v3",
-          },
-          {
-            name: "Cruise Single",
-            routePath: "/cruise/cruise-single/3",
-          },
-        ],
+        name: "Wild Wadi Waterpark",
+        routePath: "/theme-parks-water-parks/wild-wadi-waterpark",
+      },
+      {
+        name: "Ski Dubai - Indoor Ski Resort",
+        routePath: "/theme-parks-water-parks/ski-dubai-indoor-ski-resort",
+      },
+      {
+        name: "IMG Worlds of Adventure",
+        routePath: "/theme-parks-water-parks/img-worlds-of-adventure",
+      },
+      {
+        name: "LEGOLAND",
+        routePath: "/theme-parks-water-parks/legoland",
+      },
+      {
+        name: "Bollywood Park",
+        routePath: "/theme-parks-water-parks/bollywood-park",
+      },
+      {
+        name: "Motiongate",
+        routePath: "/theme-parks-water-parks/motiongate",
+      },
+      {
+        name: "Ferrari World Abu Dhabi",
+        routePath: "/theme-parks-water-parks/ferrari-world-abu-dhabi",
+      },
+      {
+        name: "Yas Waterworld Abu Dhabi",
+        routePath: "/theme-parks-water-parks/yas-waterworld-abu-dhabi",
+      },
+      {
+        name: "Warner Bros. World Abu Dhabi",
+        routePath: "/theme-parks-water-parks/warner-bros-world-abu-dhabi",
+      },
+      {
+        name: "Laguna Waterpark",
+        routePath: "/theme-parks-water-parks/laguna-waterpark",
       },
     ],
   },
   {
     id: 7,
-    title: "Flights",
+    title: "Limousine Tours",
     menuItems: [
       {
-        id: 1,
-        title: "Flight List",
-        menuList: [
-          {
-            name: "Flight List v1",
-            routePath: "/flight/flight-list-v1",
-          },
-        ],
+        name: "Stretch Limos",
+        routePath: "/limousine-tours/stretch-limos",
+      },
+      {
+        name: "Luxury Sedans",
+        routePath: "/limousine-tours/luxury-sedans",
       },
     ],
+  },
+  {
+    id: 8,
+    title: "Luxury Yacht Tours",
+    menuItems: [
+      {
+        name: "Birthday Party Yacht Rental",
+        routePath: "/luxury-yacht-tours/birthday-party-yacht-rental",
+      },
+      {
+        name: "Luxury Fishing Trip Yacht Rental",
+        routePath: "/luxury-yacht-tours/luxury-fishing-trip-yacht-rental",
+      },
+      {
+        name: "Sunset Cruise Yacht",
+        routePath: "/luxury-yacht-tours/sunset-cruise-yacht",
+      },
+      {
+        name: "Marina Yacht Tour",
+        routePath: "/luxury-yacht-tours/marina-yacht-tour",
+      },
+      {
+        name: "Splash Ride Yacht",
+        routePath: "/luxury-yacht-tours/marina-yacht-tour",
+      },
+      {
+        name: "Romantic Cruise Yacht",
+        routePath: "/luxury-yacht-tours/romantic-cruise-yacht",
+      },
+    ],
+  },
+  {
+    id: 9,
+    title: "Private Transfers",
+    routePath: "/private-transfers",
+  },
+  {
+    id: 10,
+    title: "Adventure Tours",
+    routePath: "/adventure-tours",
+  },
+  {
+    id: 11,
+    title: "Sightseeing",
+    routePath: "/sightseeing",
   },
 ];
