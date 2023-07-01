@@ -27,8 +27,8 @@ const Header1 = () => {
             <div className="col-auto">
               <div className="d-flex items-center">
                 <Link href="/" className="header-logo mr-20">
-                  <img src="/img/general/logo-dark.svg" alt="logo icon" />
-                  <img src="/img/general/logo-dark.svg" alt="logo icon" />
+                  <img src="/img/general/logo.png" alt="logo icon" />
+                  <img src="/img/general/logo.png" alt="logo icon" />
                 </Link>
                 {/* End logo */}
 
@@ -47,11 +47,6 @@ const Header1 = () => {
               <div className="d-flex items-center">
                 {/* Start btn-group */}
                 <div className="d-flex items-center ml-20 is-menu-opened-hide md:d-none">
-                  <Link
-                    href="/others-pages/login"
-                    className="button px-30 fw-400 text-14 -blue-1 bg-blue-1 h-50 text-white">
-                    Become An Expert
-                  </Link>
                   <Link
                     href="/others-pages/signup"
                     className="button px-30 fw-400 text-14 -outline-blue-1 h-50 text-blue-1 ml-20">
