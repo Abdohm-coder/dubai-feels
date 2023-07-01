@@ -16,19 +16,16 @@ const Index = () => {
               data-aos="fade-up"
               data-aos-delay="400"
             >
-              Best Travel{" "}
+              It's all about having FUN in <br />
               <span className="text-blue-1 relative">
-                Experience{" "}
+                DUBAI
                 <span className="-line">
                   <img src="/img/general/line.png" alt="image" />
                 </span>
               </span>
             </h1>
             <p className="mt-20" data-aos="fade-up" data-aos-delay="500">
-              Experience the various exciting tour and travel packages and Make
-              hotel reservations, find
-              <br className="lg:d-none" /> vacation packages, search cheap
-              hotels and events
+              DubaiFeel.com helps you explore, compare, and book activities & experiences—all in One PlatForm
             </p>
 
             <MainFilterSearchBox />
