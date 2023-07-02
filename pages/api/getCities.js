@@ -1,9 +1,11 @@
 import axios from "axios";
 
-export default async function handler(_, res) {
+export default async function handler(req, res) {
   try {
-    const response = await axios.get(
-      "https://www.raynab2b.com/api/Tour/countries"
+    const { CountryId } = req.body;
+    const response = await axios.post(
+      "https://www.raynab2b.com/api/Tour/cities",
+      { CountryId }
     );
     const data = await response.json();
     // console.log(data)

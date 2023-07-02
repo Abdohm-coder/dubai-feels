@@ -8,22 +8,18 @@ import Tours2 from "../components/tours/Tours2";
 
 import { useEffect } from "react";
 import axios from "axios";
+import { fetchCountries } from "../settings/site.settings";
 
 const MainRoot = () => {
+  
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        "https://www.raynab2b.com/api/Tour/countries"
-      );
+      const response = await fetchCountries();
       console.log("Data from Frontend: ", response);
     };
     fetchData();
-    const fetchApi = async () => {
-      const response = await axios.get("/api/countries");
-      console.log("Data from Nodejs", response);
-    };
-    fetchApi();
   }, []);
+
   return (
     <>
       <Seo pageTitle="Local Dubai Tours & Activities with Best Offers & Deals" />
