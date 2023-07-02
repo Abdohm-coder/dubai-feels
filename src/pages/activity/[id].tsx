@@ -6,7 +6,7 @@ import { Navigation } from "swiper";
 import ModalVideo from "react-modal-video";
 import "photoswipe/dist/photoswipe.css";
 import { Gallery, Item } from "react-photoswipe-gallery";
-import toursData from "@/data/tours";
+import { toursData } from "@/data/tours";
 import Seo from "@/components/common/Seo";
 import Header11 from "@/components/header/header-11";
 import Overview from "@/components/tour-single/Overview";

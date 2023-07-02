@@ -29,6 +29,6 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/settings/site.settings.js"  ],
   "exclude": ["node_modules"]
 }
