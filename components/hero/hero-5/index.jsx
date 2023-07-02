@@ -16,7 +16,7 @@ const Index = () => {
               data-aos="fade-up"
               data-aos-delay="400"
             >
-              It's all about having FUN in <br />
+              {`It's all about having FUN in`} <br />
               <span className="text-blue-1 relative">
                 DUBAI
                 <span className="-line">

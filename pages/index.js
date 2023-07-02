@@ -1,4 +1,3 @@
-import Wrapper from "./layout/wrapper";
 import dynamic from "next/dynamic";
 import Seo from "../components/common/Seo";
 import Header5 from "../components/header/header-5";
@@ -11,22 +10,22 @@ import { useEffect } from "react";
 import axios from "axios";
 
 const MainRoot = () => {
-
   useEffect(() => {
-    const fetchData = async() => {
-
-      const response = await axios.get("https://www.raynab2b.com/api/Tour/countries");
-      console.log("Data from Frontend: ", response)
-    }
+    const fetchData = async () => {
+      const response = await axios.get(
+        "https://www.raynab2b.com/api/Tour/countries"
+      );
+      console.log("Data from Frontend: ", response);
+    };
     fetchData();
     const fetchApi = async () => {
       const response = await axios.get("/api/countries");
-      console.log("Data from Nodejs", response)
-    } 
+      console.log("Data from Nodejs", response);
+    };
     fetchApi();
-  }, [])
+  }, []);
   return (
-    <Wrapper>
+    <>
       <Seo pageTitle="Local Dubai Tours & Activities with Best Offers & Deals" />
       {/* End Page Title */}
 
@@ -127,7 +126,7 @@ const MainRoot = () => {
 
       <Footer4 />
       {/* End Footer Section */}
-    </Wrapper>
+    </>
   );
 };
 
