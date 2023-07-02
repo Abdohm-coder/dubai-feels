@@ -1,11 +1,11 @@
 import dynamic from "next/dynamic";
-import CallToActions from "../../components/common/CallToActions";
-import Seo from "../../components/common/Seo";
-import Faq from "../../components/faq/Faq";
-import DefaultHeader from "../../components/header/default-header";
-import DefaultFooter from "../../components/footer/default";
-import HelpSearchBlock from "../../components/block/HelpSearchBlock";
-import HelpBlock from "../../components/block/HelpBlock";
+import CallToActions from "@/components/common/CallToActions";
+import Seo from "@/components/common/Seo";
+import Faq from "@/components/faq/Faq";
+import DefaultHeader from "@/components/header/default-header";
+import DefaultFooter from "@/components/footer/default";
+import HelpSearchBlock from "@/components/block/HelpSearchBlock";
+import HelpBlock from "@/components/block/HelpBlock";
 
 const HelpCenter = () => {
   return (
@@ -66,8 +66,7 @@ const HelpCenter = () => {
             <div className="col-xl-8 col-lg-10">
               <div
                 className="accordion -simple row y-gap-20 js-accordion"
-                id="Faq1"
-              >
+                id="Faq1">
                 <Faq />
               </div>
             </div>

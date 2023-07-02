@@ -1,17 +1,15 @@
 import dynamic from "next/dynamic";
-import Seo from "../components/common/Seo";
-import Header5 from "../components/header/header-5";
-import Hero5 from "../components/hero/hero-5";
+import Seo from "@/components/common/Seo";
+import Header5 from "@/components/header/header-5";
+import Hero5 from "@/components/hero/hero-5";
 import Link from "next/link";
-import Footer4 from "../components/footer/footer-4";
-import Tours2 from "../components/tours/Tours2";
+import Footer4 from "@/components/footer/footer-4";
+import Tours2 from "@/components/tours/Tours2";
 
 import { useEffect } from "react";
-import axios from "axios";
-import { fetchCountries } from "../settings/site.settings";
+import { fetchCountries } from "@/settings/site.settings";
 
 const MainRoot = () => {
-  
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetchCountries();

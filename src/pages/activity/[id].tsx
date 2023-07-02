@@ -6,35 +6,34 @@ import { Navigation } from "swiper";
 import ModalVideo from "react-modal-video";
 import "photoswipe/dist/photoswipe.css";
 import { Gallery, Item } from "react-photoswipe-gallery";
-import toursData from "../../data/tours";
-import Seo from "../../components/common/Seo";
-import Header11 from "../../components/header/header-11";
-import Overview from "../../components/tour-single/Overview";
-import TourSnapShot from "../../components/tour-single/TourSnapShot";
-import TopBreadCrumb from "../../components/tour-single/TopBreadCrumb";
-import SidebarRight from "../../components/tour-single/SidebarRight";
-import ReviewProgress2 from "../../components/tour-single/guest-reviews/ReviewProgress2";
-import DetailsReview2 from "../../components/tour-single/guest-reviews/DetailsReview2";
-import ReplyForm from "../../components/tour-single/ReplyForm";
-import ReplyFormReview2 from "../../components/tour-single/ReplyFormReview2";
-import CallToActions from "../../components/common/CallToActions";
-import DefaultFooter from "../../components/footer/default";
-import Tours from "../../components/tours/Tours";
-import Faq from "../../components/faq/Faq";
+import toursData from "@/data/tours";
+import Seo from "@/components/common/Seo";
+import Header11 from "@/components/header/header-11";
+import Overview from "@/components/tour-single/Overview";
+import TourSnapShot from "@/components/tour-single/TourSnapShot";
+import TopBreadCrumb from "@/components/tour-single/TopBreadCrumb";
+import SidebarRight from "@/components/tour-single/SidebarRight";
+import ReviewProgress2 from "@/components/tour-single/guest-reviews/ReviewProgress2";
+import DetailsReview2 from "@/components/tour-single/guest-reviews/DetailsReview2";
+import ReplyForm from "@/components/tour-single/ReplyForm";
+import ReplyFormReview2 from "@/components/tour-single/ReplyFormReview2";
+import CallToActions from "@/components/common/CallToActions";
+import DefaultFooter from "@/components/footer/default";
+import Tours from "@/components/tours/Tours";
+import Faq from "@/components/faq/Faq";
 import Link from "next/link";
-import Itinerary from "../../components/tour-single/itinerary";
-import ImportantInfo from "../../components/tour-single/ImportantInfo";
+import ImportantInfo from "@/components/tour-single/ImportantInfo";
 import Image from "next/image";
 
 const TourSingleV1Dynamic = () => {
   const [isOpen, setOpen] = useState(false);
   const router = useRouter();
-  const [tour, setTour] = useState({});
+  const [tour, setTour] = useState<(typeof toursData)[0]>();
   const id = router.query.id;
 
   useEffect(() => {
     if (!id) <h1>Loading...</h1>;
-    else setTour(toursData.find((item) => item.id == id));
+    else setTour(toursData.find((item) => item.id === +id));
 
     return () => {};
   }, [id]);
@@ -43,7 +42,6 @@ const TourSingleV1Dynamic = () => {
     <>
       <ModalVideo
         channel="youtube"
-        autoplay
         isOpen={isOpen}
         videoId="oqNZOOWF8qM"
         onClose={() => setOpen(false)}
@@ -176,6 +174,7 @@ const TourSingleV1Dynamic = () => {
                         {({ ref, open }) => (
                           <div
                             className="button -blue-1 px-24 py-15 bg-white text-dark-1 js-gallery"
+                            //@ts-ignore
                             ref={ref}
                             onClick={open}
                             role="button">

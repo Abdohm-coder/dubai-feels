@@ -1,15 +1,15 @@
-import Seo from "../../../components/common/Seo";
-import Header11 from "../../../components/header/header-11";
-import DefaultFooter from "../../../components/footer/default";
-import TopHeaderFilter from "../../../components/tour-list/tour-list-v1/TopHeaderFilter";
-import TourProperties from "../../../components/tour-list/tour-list-v1/TourProperties";
+import Seo from "@/components/common/Seo";
+import Header11 from "@/components/header/header-11";
+import DefaultFooter from "@/components/footer/default";
+import TopHeaderFilter from "@/components/tour-list/tour-list-v1/TopHeaderFilter";
+import TourProperties from "@/components/tour-list/tour-list-v1/TourProperties";
 import { useRouter } from "next/router";
-import { capitalizeString } from "../../../utils/capitalize-string";
+import { capitalizeString } from "@/utils/capitalize-string";
 
 const Index = () => {
   const { query } = useRouter();
-  console.log(query)
-  const title = capitalizeString(query["category-list"]?.replaceAll("-", " "));
+  const id = query["category-page"] as string;
+  const title = capitalizeString(id?.replaceAll("-", " "));
   return (
     <>
       <Seo pageTitle={`Dubai ${title}`} />

@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import Seo from "../../components/common/Seo";
+import Seo from "@/components/common/Seo";
 
 const Invoice = () => {
   return (

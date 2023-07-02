@@ -1,10 +1,10 @@
-import Seo from "../../components/common/Seo";
-import Header11 from "../../components/header/header-11";
-import DefaultFooter from "../../components/footer/default";
-import TopHeaderFilter from "../../components/tour-list/tour-list-v1/TopHeaderFilter";
-import TourProperties from "../../components/tour-list/tour-list-v1/TourProperties";
+import Seo from "@/components/common/Seo";
+import Header11 from "@/components/header/header-11";
+import DefaultFooter from "@/components/footer/default";
+import TopHeaderFilter from "@/components/tour-list/tour-list-v1/TopHeaderFilter";
+import TourProperties from "@/components/tour-list/tour-list-v1/TourProperties";
 import { useSearchParams } from "next/navigation";
-import { capitalizeString } from "../../utils/capitalize-string";
+import { capitalizeString } from "@/utils/capitalize-string";
 
 const Index = () => {
   const searchParams = useSearchParams();

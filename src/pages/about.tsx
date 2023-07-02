@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
-import Seo from "../components/common/Seo";
-import DefaultHeader from "../components/header/default-header";
-import DefaultFooter from "../components/footer/default";
+import Seo from "@/components/common/Seo";
+import DefaultHeader from "@/components/header/default-header";
+import DefaultFooter from "@/components/footer/default";
 import Image from "next/image";
 
 const About = () => {
