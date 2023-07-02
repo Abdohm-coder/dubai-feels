@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Slider from "react-slick";
 import activityData from "../../data/activity";
-import isTextMatched from "../../utils/isTextMatched";
+import { isTextMatched } from "../../utils/isTextMatched";
 
 const Activity = () => {
   var settings = {
@@ -73,20 +73,17 @@ const Activity = () => {
           <div
             key={item?.id}
             data-aos="fade"
-            data-aos-delay={item?.delayAnimation}
-          >
+            data-aos-delay={item?.delayAnimation}>
             <Link
               href={`/activity/activity-single/${item.id}`}
-              className="activityCard -type-1 rounded-4 hover-inside-slider"
-            >
+              className="activityCard -type-1 rounded-4 hover-inside-slider">
               <div className="activityCard__image position-relative">
                 <div className="inside-slider">
                   <Slider
                     {...itemSettings}
                     arrows={true}
                     nextArrow={<Arrow type="next" />}
-                    prevArrow={<Arrow type="prev" />}
-                  >
+                    prevArrow={<Arrow type="prev" />}>
                     {item?.slideImg?.map((slide, i) => (
                       <div className="cardImage ratio ratio-1:1" key={i}>
                         <div className="cardImage__content ">
@@ -122,8 +119,7 @@ const Activity = () => {
                         isTextMatched(item?.tag, "top rated")
                           ? "bg-yellow-1 text-dark-1"
                           : ""
-                      }`}
-                    >
+                      }`}>
                       {item.tag}
                     </div>
                   </div>

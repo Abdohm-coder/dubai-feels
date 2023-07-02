@@ -7,11 +7,7 @@ import {
   dashboardItems,
 } from "../../data/mainMenuData";
 import CategoriesMegaMenu from "./CategoriesMegaMenu";
-import {
-  isActiveParent,
-  isActiveLink,
-  isActiveParentChaild,
-} from "../../utils/linkActiveChecker";
+import { isActiveLink } from "../../utils/linkActiveChecker";
 import { useRouter } from "next/router";
 
 const MainMenu = ({ style = "" }) => {

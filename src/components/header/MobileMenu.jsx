@@ -16,11 +16,7 @@ import {
   dashboardItems,
   categorieMobileItems,
 } from "../../data/mainMenuData";
-import {
-  isActiveLink,
-  isActiveParent,
-  isActiveParentChaild,
-} from "../../utils/linkActiveChecker";
+import { isActiveLink } from "../../utils/linkActiveChecker";
 import Social from "../common/social/Social";
 import ContactInfo from "./ContactInfo";
 

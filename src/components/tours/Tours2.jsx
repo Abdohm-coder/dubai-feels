@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 import toursData from "../../data/tours";
-import isTextMatched from "../../utils/isTextMatched";
+import { isTextMatched } from "../../utils/isTextMatched";
 
 const Tours2 = () => {
   return (
@@ -34,19 +34,16 @@ const Tours2 = () => {
           1200: {
             slidesPerView: 4,
           },
-        }}
-      >
+        }}>
         {toursData.slice(0, 6).map((item) => (
           <SwiperSlide key={item.id}>
             <div
               key={item?.id}
               data-aos="fade"
-              data-aos-delay={item?.delayAnimation}
-            >
+              data-aos-delay={item?.delayAnimation}>
               <Link
                 href={`/tour/tour-single/${item.id}`}
-                className="tourCard -type-1 rounded-4"
-              >
+                className="tourCard -type-1 rounded-4">
                 <div className="tourCard__image">
                   <div className="cardImage ratio ratio-1:1">
                     <div className="cardImage__content">
@@ -57,8 +54,7 @@ const Tours2 = () => {
                           pagination={{
                             clickable: true,
                           }}
-                          navigation={true}
-                        >
+                          navigation={true}>
                           {item?.slideImg?.map((slide, i) => (
                             <SwiperSlide key={i}>
                               <Image
@@ -95,8 +91,7 @@ const Tours2 = () => {
                         isTextMatched(item?.tag, "top rated")
                           ? "bg-yellow-1 text-dark-1"
                           : ""
-                      }`}
-                    >
+                      }`}>
                       {item.tag}
                     </div>
                   </div>
