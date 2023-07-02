@@ -11,6 +11,9 @@
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
     "@popperjs/core": "^2.11.6",
+    "@types/node": "^20.3.3",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
     "aos": "^2.3.4",
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
@@ -33,6 +36,7 @@
     "react-tabs": "^6.0.0",
     "sass": "^1.57.1",
     "slick-carousel": "^1.8.1",
-    "swiper": "^8.4.7"
+    "swiper": "^8.4.7",
+    "typescript": "^5.1.6"
   }
 }
