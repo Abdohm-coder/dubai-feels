@@ -8,8 +8,6 @@ import "swiper/css/scrollbar";
 import "swiper/css/effect-cards";
 import "aos/dist/aos.css";
 import "../styles/index.scss";
-import { Provider } from "react-redux";
-import { store } from "../app/store";
 
 if (typeof window !== "undefined") {
   require("bootstrap/dist/js/bootstrap");
@@ -25,10 +23,8 @@ export default function App({ Component, pageProps }) {
 
   return (
     <main>
-      <Provider store={store}>
-        <Component {...pageProps} />
-        <SrollTop />
-      </Provider>
+      <Component {...pageProps} />
+      <SrollTop />
     </main>
   );
 }
