@@ -9,6 +9,9 @@ import "swiper/css/effect-cards";
 import "aos/dist/aos.css";
 import "@/styles/index.scss";
 import { AppProps } from "next/app";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { DataProvider } from "@/context/static-data";
 
 if (typeof window !== "undefined") {
   require("bootstrap/dist/js/bootstrap");
@@ -24,7 +27,10 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <main>
-      <Component {...pageProps} />
+      <ToastContainer />
+      <DataProvider>
+        <Component {...pageProps} />
+      </DataProvider>
       <SrollTop />
     </main>
   );
