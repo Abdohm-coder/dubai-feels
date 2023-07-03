@@ -1,8 +1,46 @@
 import GuestSearch from "./GuestSearch";
 import DateSearch from "./DateSearch";
+import {
+  fetchTourAvailability,
+  fetchTourOptionById,
+} from "@/settings/site.settings";
+import { useState } from "react";
+import { TourAvailabilityRes, TourOptionsRes } from "@/types/response-type";
+import { toast } from "react-toastify";
 import Link from "next/link";
 
-const index = () => {
+const Index = () => {
+  const [isAvailable, setIsAvailable] = useState(true);
+  const [tourOptions, setTourOptions] = useState<
+    TourOptionsRes["result"][0]["touroption"]
+  >([]);
+
+  const checkAvailability = async () => {
+    const response: TourAvailabilityRes = await fetchTourAvailability({
+      tourId: 1,
+      adult: 1,
+      child: 1,
+      infant: 0,
+      contractId: 1,
+      tourOptionId: 1,
+      transferId: 1,
+      travelDate: "",
+    });
+    const message = response.result[0].message;
+    if (response.result[0].status === 1) {
+      setIsAvailable(true);
+      toast.success(message);
+      const options: TourOptionsRes = await fetchTourOptionById({
+        tourId: 1,
+        contractId: 1,
+      });
+      setTourOptions(options.result[0].touroption ?? []);
+    } else {
+      setIsAvailable(false);
+      toast.warning(message);
+    }
+  };
+
   return (
     <>
       <div className="col-12">
@@ -23,15 +61,42 @@ const index = () => {
       {/* End .col-12 */}
 
       <div className="col-12">
-        <Link
-          href="/hotel/booking-page"
+        <button
+          onClick={checkAvailability}
           className="button -dark-1 py-15 px-35 h-60 col-12 rounded-4 bg-blue-1 text-white">
           Book Now
-        </Link>
+        </button>
       </div>
       {/* End .col-12 */}
+      {isAvailable && (
+        <>
+          <div className="col-12">
+            <div className="form-floating">
+              <select
+                className="form-select"
+                id="floatingSelect"
+                aria-label="Floating label select example">
+                {tourOptions.map(({ optionName, tourOptionId }) => (
+                  <option value={tourOptionId}>{optionName}</option>
+                ))}
+              </select>
+              <label htmlFor="floatingSelect">Select an Option</label>
+            </div>
+            {/* End check-in-out */}
+          </div>
+          {/* End .col-12 */}
+          <div className="col-12">
+            <Link
+              href={"/cart"}
+              className="button -dark-1 py-15 px-35 h-60 col-12 rounded-4 bg-blue-1 text-white">
+              Add To Cart
+            </Link>
+          </div>
+          {/* End .col-12 */}
+        </>
+      )}
     </>
   );
 };
 
-export default index;
+export default Index;
