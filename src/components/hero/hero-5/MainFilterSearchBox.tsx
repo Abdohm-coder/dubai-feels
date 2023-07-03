@@ -1,7 +1,6 @@
 import Router from "next/router";
 import DateSearch from "../DateSearch";
 import GuestSearch from "./GuestSearch";
-import LocationSearch from "./LocationSearch";
 
 const MainFilterSearchBox = () => {
   return (
@@ -11,8 +10,6 @@ const MainFilterSearchBox = () => {
         data-aos="fade-up"
         data-aos-delay="600">
         <div className="button-grid items-center">
-          <LocationSearch />
-          {/* End Location */}
 
           <div className="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar">
             <div>

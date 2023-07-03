@@ -1,7 +1,7 @@
 import FilterBox from "../../components/tour-single/filter-box";
 import { toursData } from "@/data/tours";
 
-const SidebarRight = ({ tour }: { tour: (typeof toursData)[0] }) => {
+const SidebarRight = ({ tour }: { tour?: (typeof toursData)[0] }) => {
   return (
     <div className="d-flex justify-end js-pin-content">
       <div className="w-360 lg:w-full d-flex flex-column items-center">
