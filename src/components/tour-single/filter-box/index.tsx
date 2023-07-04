@@ -77,7 +77,7 @@ const Index = () => {
                 id="floatingSelect"
                 aria-label="Floating label select example">
                 {tourOptions.map(({ optionName, tourOptionId }) => (
-                  <option value={tourOptionId}>{optionName}</option>
+                  <option key={tourOptionId} value={tourOptionId}>{optionName}</option>
                 ))}
               </select>
               <label htmlFor="floatingSelect">Select an Option</label>
