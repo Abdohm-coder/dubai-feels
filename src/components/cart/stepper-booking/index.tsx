@@ -1,47 +1,23 @@
 import React, { useState } from "react";
 import CustomerInfo from "../CustomerInfo";
-import PaymentInfo from "../PaymentInfo";
 import OrderSubmittedInfo from "../OrderSubmittedInfo";
+import Stripe from "stripe";
+import PaymentInfo from "../PaymentInfo";
 
-const Index = () => {
-  const [currentStep, setCurrentStep] = useState(0);
-  const steps = [
-    {
-      title: "Personal Details",
-      stepNo: "1",
-      stepBar: (
-        <>
-          <div className="col d-none d-sm-block">
-            <div className="w-full h-1 bg-border"></div>
-          </div>
-        </>
-      ),
-      content: <CustomerInfo />,
-    },
-    {
-      title: "Payment Details",
-      stepNo: "2",
-      stepBar: (
-        <>
-          <div className="col d-none d-sm-block">
-            <div className="w-full h-1 bg-border"></div>
-          </div>
-        </>
-      ),
-      content: <PaymentInfo />,
-    },
-    {
-      title: "Final Step",
-      stepNo: "3",
-      stepBar: "",
-      content: <OrderSubmittedInfo />,
-    },
-  ];
-
-  const renderStep = () => {
-    const { content } = steps[currentStep];
-    return <>{content}</>;
-  };
+const Index: React.FC<{ paymentIntent: Stripe.PaymentIntent | null }> = ({
+  paymentIntent,
+}) => {
+  const [currentStep, setCurrentStep] = useState(paymentIntent ? 2 : 0);
+  const [customerInfo, setCustomerInfo] = useState({
+    full_name: "",
+    email: "",
+    phone: "",
+    address_1: "",
+    address_2: "",
+    state: "",
+    zip: "",
+    special_request: "",
+  });
 
   const nextStep = () => {
     if (currentStep < steps.length - 1) {
@@ -54,6 +30,54 @@ const Index = () => {
       setCurrentStep(currentStep - 1);
     }
   };
+
+  const steps = [
+    {
+      title: "Personal Details",
+      stepNo: "1",
+      stepBar: (
+        <>
+          <div className="col d-none d-sm-block">
+            <div className="w-full h-1 bg-border"></div>
+          </div>
+        </>
+      ),
+      content: (
+        <CustomerInfo
+          nextStep={nextStep}
+          customerInfo={customerInfo}
+          setCustomerInfo={setCustomerInfo}
+        />
+      ),
+    },
+    {
+      title: "Payment Details",
+      stepNo: "2",
+      stepBar: (
+        <>
+          <div className="col d-none d-sm-block">
+            <div className="w-full h-1 bg-border"></div>
+          </div>
+        </>
+      ),
+      content: (
+        <PaymentInfo email={customerInfo.email} previousStep={previousStep} />
+      ),
+    },
+    {
+      title: "Final Step",
+      stepNo: "3",
+      stepBar: "",
+      content: <OrderSubmittedInfo data={paymentIntent!} />,
+    },
+  ];
+
+  const renderStep = () => {
+    const { content } = steps[currentStep];
+    return <>{content}</>;
+  };
+
+  // price: "price_1NQ9GSBYd9B4CHMmZzd0XMrD",
 
   return (
     <>
@@ -90,32 +114,8 @@ const Index = () => {
       </div>
       {/* End stepper header part */}
 
-      <div className="row">{renderStep()}</div>
+      <div>{renderStep()}</div>
       {/* End main content */}
-
-      <div className="row x-gap-20 y-gap-20 pt-20">
-        <div className="col-auto">
-          <button
-            className="button h-60 px-24 -blue-1 bg-light-2"
-            disabled={currentStep === 0}
-            onClick={previousStep}>
-            Previous
-          </button>
-        </div>
-        {/* End prvious btn */}
-
-        <div className="col-auto">
-          <button
-            className="button h-60 px-24 -dark-1 bg-blue-1 text-white"
-            disabled={currentStep === steps.length - 1}
-            onClick={nextStep}>
-            {currentStep === 1 ? "Book" : "Next"}{" "}
-            <div className="icon-arrow-top-right ml-15" />
-          </button>
-        </div>
-        {/* End next btn */}
-      </div>
-      {/* End stepper button */}
     </>
   );
 };

@@ -1,5 +1,7 @@
 import axios from "axios";
 
+export const DUBAI_COUNTRY_ID = 1;
+
 export const fetchCountries = async () => {
   try {
     const response = await axios.post("/api/getData", {
