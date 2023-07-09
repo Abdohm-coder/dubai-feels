@@ -2,20 +2,28 @@ import GuestSearch from "./GuestSearch";
 import DateSearch from "./DateSearch";
 import {
   fetchTourAvailability,
-  fetchTourOptionById,
+  // fetchTourOptionById,
 } from "@/settings/site.settings";
 import { useState } from "react";
 import { TourAvailabilityRes, TourOptionsRes } from "@/types/response-type";
-import { toast } from "react-toastify";
-import Link from "next/link";
+// import { toast } from "react-toastify";
+import { useRouter } from "next/router";
+import { toursData } from "@/data/tours";
 
-const Index = () => {
-  const [isAvailable, setIsAvailable] = useState(true);
-  const [tourOptions, setTourOptions] = useState<
-    TourOptionsRes["result"][0]["touroption"]
-  >([]);
+const Index = ({ tour }: { tour?: (typeof toursData)[0] }) => {
+  const router = useRouter();
+  const [isAvailable, setIsAvailable] = useState(false);
+  const [tourOptions, setTourOptions] = useState<TourOptionsRes["touroption"]>(
+    []
+  );
+
+  const addToCart = () => {
+    localStorage.setItem("booking-details", JSON.stringify(tour));
+    router.push("/cart");
+  };
 
   const checkAvailability = async () => {
+    setIsAvailable(true);
     const response: TourAvailabilityRes = await fetchTourAvailability({
       tourId: 1,
       adult: 1,
@@ -26,19 +34,19 @@ const Index = () => {
       transferId: 1,
       travelDate: "",
     });
-    const message = response.result[0].message;
-    if (response.result[0].status === 1) {
-      setIsAvailable(true);
-      toast.success(message);
-      const options: TourOptionsRes = await fetchTourOptionById({
-        tourId: 1,
-        contractId: 1,
-      });
-      setTourOptions(options.result[0].touroption ?? []);
-    } else {
-      setIsAvailable(false);
-      toast.warning(message);
-    }
+    // const message = response.result[0].message;
+    // if (response.result[0].status === 1) {
+    //   setIsAvailable(true);
+    //   toast.success(message);
+    //   const options: TourOptionsRes = await fetchTourOptionById({
+    //     tourId: 1,
+    //     contractId: 1,
+    //   });
+    //   setTourOptions(options.result[0].touroption ?? []);
+    // } else {
+    //   setIsAvailable(false);
+    //   toast.warning(message);
+    // }
   };
 
   return (
@@ -77,7 +85,9 @@ const Index = () => {
                 id="floatingSelect"
                 aria-label="Floating label select example">
                 {tourOptions.map(({ optionName, tourOptionId }) => (
-                  <option key={tourOptionId} value={tourOptionId}>{optionName}</option>
+                  <option key={tourOptionId} value={tourOptionId}>
+                    {optionName}
+                  </option>
                 ))}
               </select>
               <label htmlFor="floatingSelect">Select an Option</label>
@@ -86,11 +96,11 @@ const Index = () => {
           </div>
           {/* End .col-12 */}
           <div className="col-12">
-            <Link
-              href={"/cart"}
+            <button
+              onClick={addToCart}
               className="button -dark-1 py-15 px-35 h-60 col-12 rounded-4 bg-blue-1 text-white">
               Add To Cart
-            </Link>
+            </button>
           </div>
           {/* End .col-12 */}
         </>

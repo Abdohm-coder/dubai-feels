@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
-import {toursData} from "@/data/tours";
+import { toursData } from "@/data/tours";
 import Link from "next/link";
 
 const TourProperties = () => {
@@ -10,10 +10,9 @@ const TourProperties = () => {
       {toursData.slice(0, 5).map((item) => (
         <div
           className="col-12"
-          key={item?.id}
+          key={item?.tourId}
           data-aos="fade"
-          data-aos-delay={item?.delayAnimation}
-        >
+          data-aos-delay={item?.delayAnimation}>
           <div className="border-top-light pt-30">
             <div className="row x-gap-20 y-gap-20">
               <div className="col-md-auto">
@@ -25,8 +24,7 @@ const TourProperties = () => {
                       pagination={{
                         clickable: true,
                       }}
-                      navigation={true}
-                    >
+                      navigation={true}>
                       {item?.slideImg?.map((slide, i) => (
                         <SwiperSlide key={i}>
                           <Image
@@ -74,10 +72,10 @@ const TourProperties = () => {
                 </div>
                 {/* End .row */}
                 <h3 className="text-18 lh-16 fw-500">
-                  {item?.title} <br />
+                  {item?.tourName} <br />
                   London with Guided Cathedral Tour
                 </h3>
-                <p className="text-14 lh-14 mt-5">{item?.location}</p>
+                <p className="text-14 lh-14 mt-5">{item?.cityId}</p>
                 <div className="text-14 lh-15 fw-500 mt-20">
                   Taking safety measures
                 </div>
@@ -97,7 +95,7 @@ const TourProperties = () => {
                 </div>
 
                 <div className="text-14 lh-14 text-light-1 mt-10">
-                  {item?.numberOfReviews} reviews
+                  {item?.rating} reviews
                 </div>
 
                 <div className="text-14 text-light-1 mt-50 md:mt-20">From</div>
@@ -107,9 +105,8 @@ const TourProperties = () => {
                 <div className="text-14 text-light-1 mt-5">per adult</div>
 
                 <Link
-                  href={`/activity/${item.id}`}
-                  className="button -md -dark-1 bg-blue-1 text-white mt-24"
-                >
+                  href={`/activity/${item.tourId}`}
+                  className="button -md -dark-1 bg-blue-1 text-white mt-24">
                   View Detail <div className="icon-arrow-top-right ml-15"></div>
                 </Link>
               </div>

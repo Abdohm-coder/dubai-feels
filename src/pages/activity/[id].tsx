@@ -33,7 +33,7 @@ const TourSingleV1Dynamic = () => {
 
   useEffect(() => {
     if (!id) <h1>Loading...</h1>;
-    else setTour(toursData.find((item) => item.id === +id));
+    else setTour(toursData.find((item) => item.tourId === +id));
 
     return () => {};
   }, [id]);
@@ -63,7 +63,7 @@ const TourSingleV1Dynamic = () => {
         <div className="container">
           <div className="row y-gap-20 justify-between items-end">
             <div className="col-auto">
-              <h1 className="text-30 fw-600">{tour?.title}</h1>
+              <h1 className="text-30 fw-600">{tour?.tourName}</h1>
               <div className="row x-gap-20 y-gap-20 items-center pt-10">
                 <div className="col-auto">
                   <div className="d-flex items-center">
@@ -80,7 +80,7 @@ const TourSingleV1Dynamic = () => {
                     </div>
 
                     <div className="text-14 text-light-1 ml-10">
-                      {tour?.numberOfReviews} reviews
+                      {tour?.rating} reviews
                     </div>
                   </div>
                 </div>
@@ -91,7 +91,7 @@ const TourSingleV1Dynamic = () => {
                       <div className="d-flex x-gap-5 items-center">
                         <i className="icon-placeholder text-16 text-light-1"></i>
                         <div className="text-15 text-light-1">
-                          {tour?.location}
+                          {tour?.cityId}
                         </div>
                       </div>
                     </div>

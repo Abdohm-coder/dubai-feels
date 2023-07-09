@@ -1,6 +1,18 @@
+import { useState, useEffect } from "react";
+import { toursData } from "@/data/tours";
 import Image from "next/image";
 
 const BookingDetails = () => {
+  const [bookingDetails, setBookingDetails] = useState<
+    (typeof toursData)[0] | null
+  >();
+
+  useEffect(() => {
+    // Get Booking Details from locale Storage
+    const data = localStorage.getItem("booking-details");
+    if (data) setBookingDetails(JSON.parse(data));
+  }, []);
+  
   return (
     <div className="px-30 py-30 border-light rounded-4">
       <div className="text-20 fw-500 mb-30">Your booking details</div>
@@ -9,7 +21,7 @@ const BookingDetails = () => {
           <Image
             width={140}
             height={140}
-            src="/img/backgrounds/1.png"
+            src={bookingDetails?.slideImg[0] ?? "/img/backgrounds/1.png"}
             alt="image"
             className="size-140 rounded-4 object-cover"
           />
@@ -17,28 +29,38 @@ const BookingDetails = () => {
         {/* End .col */}
         <div className="col">
           <div className="d-flex x-gap-5 pb-10">
-            <i className="icon-star text-yellow-1 text-10" />
-            <i className="icon-star text-yellow-1 text-10" />
-            <i className="icon-star text-yellow-1 text-10" />
-            <i className="icon-star text-yellow-1 text-10" />
-            <i className="icon-star text-yellow-1 text-10" />
+            {new Array(Math.trunc(bookingDetails?.reviewCount ?? 5))
+              .fill("")
+              .map((_, i) => (
+                <i
+                  key={`review ${i}`}
+                  className="icon-star text-yellow-1 text-10"
+                />
+              ))}
           </div>
           {/* End ratings */}
           <div className="lh-17 fw-500">
-            Great Northern Hotel, a Tribute Portfolio Hotel, London
+            {bookingDetails?.tourName ??
+              `Great Northern Hotel, a Tribute Portfolio Hotel, London`}
           </div>
-          <div className="text-14 lh-15 mt-5">Westminster Borough, London</div>
+          <div className="text-14 lh-15 mt-5">
+            {bookingDetails?.cityId ?? `Westminster Borough, London`}
+          </div>
           <div className="row x-gap-10 y-gap-10 items-center pt-10">
             <div className="col-auto">
               <div className="d-flex items-center">
                 <div className="size-30 flex-center bg-blue-1 rounded-4">
-                  <div className="text-12 fw-600 text-white">4.8</div>
+                  <div className="text-12 fw-600 text-white">
+                    {bookingDetails?.reviewCount ?? `4.8`}
+                  </div>
                 </div>
                 <div className="text-14 fw-500 ml-10">Exceptional</div>
               </div>
             </div>
             <div className="col-auto">
-              <div className="text-14">3,014 reviews</div>
+              <div className="text-14">
+                {bookingDetails?.rating ?? `3,014`} reviews
+              </div>
             </div>
           </div>
         </div>

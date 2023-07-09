@@ -7,7 +7,7 @@ export const fetchCountries = async () => {
     const response = await axios.post("/api/getData", {
       url: "Tour/countries",
     });
-    return response.data;
+    return response.data.result;
   } catch (err) {
     console.error("get countries err: ", err);
   }
@@ -20,7 +20,7 @@ export const fetchCities = async (countryId) => {
       CountryId: countryId,
       url: "Tour/cities",
     });
-    return response.data;
+    return response.data.result;
   } catch (err) {
     console.error("get cities err: ", err);
   }
@@ -34,7 +34,7 @@ export const fetchTours = async ({ countryId, cityId }) => {
       countryId,
       cityId,
     });
-    return response.data;
+    return response.data.result;
   } catch (err) {
     console.error("get tours err: ", err);
   }
@@ -57,7 +57,7 @@ export const fetchTourById = async ({
       contractId,
       travelDate,
     });
-    return response.data;
+    return response.data.result;
   } catch (err) {
     console.error("get tour id err: ", err);
   }
@@ -71,7 +71,7 @@ export const fetchTourOptionById = async ({ tourId, contractId }) => {
       tourId,
       contractId,
     });
-    return response.data;
+    return response.data.result;
   } catch (err) {
     console.error("get tour option id err: ", err);
   }
@@ -86,7 +86,7 @@ export const fetchTourList = async ({ countryId, cityId, travelDate }) => {
       cityId,
       travelDate,
     });
-    return response.data;
+    return response.data.result;
   } catch (err) {
     console.error("get tour list err: ", err);
   }
@@ -111,7 +111,7 @@ export const fetchTourOption = async ({
       noOfChild,
       noOfInfant,
     });
-    return response.data;
+    return response.data.result;
   } catch (err) {
     console.error("get tour list err: ", err);
   }
@@ -140,7 +140,7 @@ export const fetchTourAvailability = async ({
       child,
       infant,
     });
-    return response.data;
+    return response.data.result;
   } catch (err) {
     console.error("get tour availability err: ", err);
   }
@@ -187,7 +187,7 @@ export const fetchTourBooking = async ({
       ],
       passengers,
     });
-    return response.data;
+    return response.data.result;
   } catch (err) {
     console.error("get tour booking err: ", err);
   }
@@ -212,7 +212,7 @@ export const fetchTicketDetails = async ({
         },
       ],
     });
-    return response.data;
+    return response.data.result;
   } catch (err) {
     console.error("get cancel booking err: ", err);
   }
@@ -231,7 +231,7 @@ export const fetchCancelBooking = async ({
       referenceNo,
       cancellationReason,
     });
-    return response.data;
+    return response.data.result;
   } catch (err) {
     console.error("get cancel booking err: ", err);
   }

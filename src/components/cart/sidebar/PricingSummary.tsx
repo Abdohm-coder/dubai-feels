@@ -1,4 +1,4 @@
-const PricingSummary = () => {
+const PricingSummary = ({ price }: { price: number | null }) => {
   return (
     <div className="px-30 py-30 border-light rounded-4 mt-30">
       <div className="text-20 fw-500 mb-20">Your price summary</div>
@@ -8,12 +8,12 @@ const PricingSummary = () => {
         </div>
         {/* End col */}
         <div className="col-auto">
-          <div className="text-15">US$3,372.34</div>
+          <div className="text-15">US${price ?? `3,372.34`}</div>
         </div>
         {/* End col */}
       </div>
       {/* End .row */}
-
+      {/* 
       <div className="row y-gap-5 justify-between pt-5">
         <div className="col-auto">
           <div className="text-15">Taxes and fees</div>
@@ -21,7 +21,7 @@ const PricingSummary = () => {
         <div className="col-auto">
           <div className="text-15">US$674.47</div>
         </div>
-      </div>
+      </div> */}
       {/* End .row */}
 
       <div className="row y-gap-5 justify-between pt-5">
@@ -40,7 +40,7 @@ const PricingSummary = () => {
             <div className="text-18 lh-13 fw-500">Price</div>
           </div>
           <div className="col-auto">
-            <div className="text-18 lh-13 fw-500">US$4,046.81</div>
+            <div className="text-18 lh-13 fw-500">US${price ?? `4,046.81`}</div>
           </div>
         </div>
       </div>

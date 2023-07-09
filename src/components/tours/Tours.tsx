@@ -71,11 +71,11 @@ const Tours = () => {
       <Slider {...settings}>
         {toursData.slice(0, 4).map((item) => (
           <div
-            key={item?.id}
+            key={item?.tourId}
             data-aos="fade"
             data-aos-delay={item?.delayAnimation}>
             <Link
-              href={`/tour/tour-single/${item.id}`}
+              href={`/tour/tour-single/${item.tourId}`}
               className="tourCard -type-1 rounded-4 hover-inside-slider">
               <div className="tourCard__image position-relative">
                 <div className="inside-slider">
@@ -136,10 +136,10 @@ const Tours = () => {
                   <div className="text-14 text-light-1">{item?.tourType}</div>
                 </div>
                 <h4 className="tourCard__title text-dark-1 text-18 lh-16 fw-500">
-                  <span>{item?.title}</span>
+                  <span>{item?.tourName}</span>
                 </h4>
                 <p className="text-light-1 lh-14 text-14 mt-5">
-                  {item?.location}
+                  {item?.cityId}
                 </p>
 
                 <div className="row justify-between items-center pt-15">
@@ -155,7 +155,7 @@ const Tours = () => {
                       {/* End ratings */}
 
                       <div className="text-14 text-light-1 ml-10">
-                        {item?.numberOfReviews} reviews
+                        {item?.rating} reviews
                       </div>
                     </div>
                   </div>
