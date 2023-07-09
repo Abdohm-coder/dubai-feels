@@ -15,12 +15,17 @@ const PaymentInfo: React.FC<{
     null
   );
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [price, setPrice] = useState<number | null>(null);
 
   useEffect(() => {
+    // Get Booking Details from locale Storage
+    const data = localStorage.getItem("booking-details");
+    const bookingDetails = data ? JSON.parse(data) : null;
+    setPrice(bookingDetails?.price);
     const getPaymentIntents = async () => {
       try {
         const response = await axios.post("/api/payment_intents", {
-          amount: 200,
+          amount: (bookingDetails?.price ?? 200) * 100,
         });
         setPaymentIntent(response.data);
       } catch (err: any) {
@@ -90,8 +95,8 @@ const PaymentInfo: React.FC<{
 
         <div className="col-xl-5 col-lg-4">
           <div className="booking-sidebar">
-            <PricingSummary />
-            <PaymentSchedule />
+            <PricingSummary price={price} />
+            <PaymentSchedule price={price} />
           </div>
         </div>
         {/* payment sidebar info */}

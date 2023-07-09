@@ -63,7 +63,7 @@ const OrderSubmittedInfo: React.FC<{
             <div className="col-lg-3 col-md-6">
               <div className="text-15 lh-12">Total</div>
               <div className="text-15 lh-12 fw-500 text-blue-1 mt-10">
-                ${data.amount.toFixed(2)}
+                ${(data.amount / 100).toFixed(2)}
               </div>
             </div>
             {/* End .col */}

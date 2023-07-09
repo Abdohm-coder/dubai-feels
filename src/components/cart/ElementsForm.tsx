@@ -71,21 +71,13 @@ const ElementsForm: React.FC<{
       case "processing":
       case "requires_payment_method":
       case "requires_confirmation":
-        return <h2>Processing...</h2>;
+        return <p>Processing...</p>;
 
       case "requires_action":
         return <h2>Authenticating...</h2>;
 
-      case "succeeded":
-        return <h2>Payment Succeeded 🥳</h2>;
-
       case "error":
-        return (
-          <>
-            <h2>Error 😭</h2>
-            <p className="error-message">{errorMessage}</p>
-          </>
-        );
+        return <p className="text-danger">{errorMessage}</p>;
 
       default:
         return null;
@@ -104,6 +96,8 @@ const ElementsForm: React.FC<{
         <label className="lh-1 text-16 text-light-1">Card holder name *</label>
       </div>
       <PaymentElement />
+      <PaymentStatus status={payment.status} />
+
       <div className="w-full h-1 bg-border mt-40 mb-40" />
 
       <div className="row y-gap-20 items-center justify-between">
@@ -127,7 +121,6 @@ const ElementsForm: React.FC<{
         {/* End col-auto */}
       </div>
       {/* End terms and conditons */}
-      <PaymentStatus status={payment.status} />
     </form>
   );
 };
