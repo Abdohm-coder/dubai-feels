@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
-import { toursData } from "@/data/tours";
 import Image from "next/image";
+import { formatDate } from "@/utils/format-date";
+import Link from "next/link";
+import dayjs from "dayjs";
 
 const BookingDetails = () => {
-  const [bookingDetails, setBookingDetails] = useState<
-    (typeof toursData)[0] | null
-  >();
+  const [bookingDetails, setBookingDetails] = useState<any>();
 
   useEffect(() => {
     // Get Booking Details from locale Storage
     const data = localStorage.getItem("booking-details");
     if (data) setBookingDetails(JSON.parse(data));
   }, []);
-  
+
   return (
     <div className="px-30 py-30 border-light rounded-4">
       <div className="text-20 fw-500 mb-30">Your booking details</div>
@@ -72,24 +72,43 @@ const BookingDetails = () => {
       <div className="row y-gap-20 justify-between">
         <div className="col-auto">
           <div className="text-15">Check-in</div>
-          <div className="fw-500">Thu 21 Apr 2022</div>
-          <div className="text-15 text-light-1">15:00 – 23:00</div>
+          <div className="fw-500">
+            {bookingDetails?.checkin
+              ? formatDate({
+                  date: bookingDetails.checkin * 1000,
+                  format: "ll",
+                })
+              : `Thu 21 Apr 2022`}
+          </div>
+          {/* <div className="text-15 text-light-1">15:00 – 23:00</div> */}
         </div>
         <div className="col-auto md:d-none">
           <div className="h-full w-1 bg-border" />
         </div>
         <div className="col-auto text-right md:text-left">
           <div className="text-15">Check-out</div>
-          <div className="fw-500">Sat 30 Apr 2022</div>
-          <div className="text-15 text-light-1">01:00 – 11:00</div>
+          <div className="fw-500">
+            {bookingDetails?.checkout
+              ? formatDate({
+                  date: bookingDetails.checkout * 1000,
+                  format: "ll",
+                })
+              : `Sat 30 Apr 2022`}
+          </div>
+          {/* <div className="text-15 text-light-1">01:00 – 11:00</div> */}
         </div>
       </div>
       {/* End row */}
-
       <div className="border-top-light mt-30 mb-20" />
       <div>
         <div className="text-15">Total length of stay:</div>
-        <div className="fw-500">9 nights</div>
+        <div className="fw-500">
+          {dayjs(bookingDetails?.checkout * 1000).diff(
+            dayjs(bookingDetails?.checkin * 1000),
+            "day"
+          ) + 1}
+          {` nights`}
+        </div>
         <a href="#" className="text-15 text-blue-1 underline">
           Travelling on different dates?
         </a>
@@ -99,13 +118,24 @@ const BookingDetails = () => {
       <div className="row y-gap-20 justify-between items-center">
         <div className="col-auto">
           <div className="text-15">You selected:</div>
-          <div className="fw-500">Superior Double Studio</div>
-          <a href="#" className="text-15 text-blue-1 underline">
+          <div className="fw-500">
+            {bookingDetails?.tourName ?? `Superior Double Studio`}
+          </div>
+          <Link
+            href={`/activity/${bookingDetails?.tourId}`}
+            className="text-15 text-blue-1 underline">
             Change your selection
-          </a>
+          </Link>
         </div>
         <div className="col-auto">
-          <div className="text-15">1 room, 4 adult</div>
+          <div className="text-15">
+            {bookingDetails?.guestCounts.rooms > 0 &&
+              `${bookingDetails?.guestCounts.rooms} room,`}
+            {bookingDetails?.guestCounts.adults > 0 &&
+              `${bookingDetails?.guestCounts.adults} adult,`}
+            {bookingDetails?.guestCounts.children > 0 &&
+              `${bookingDetails?.guestCounts.children} children`}
+          </div>
         </div>
       </div>
       {/* End row */}

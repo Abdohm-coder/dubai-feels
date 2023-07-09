@@ -1,9 +1,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Stripe from "stripe";
-import dayjs from "dayjs";
-import LocalizedFormat from "dayjs/plugin/localizedFormat";
-dayjs.extend(LocalizedFormat);
+import { formatDate } from "@/utils/format-date";
 
 const OrderSubmittedInfo: React.FC<{
   data: Stripe.PaymentIntent;
@@ -56,7 +54,7 @@ const OrderSubmittedInfo: React.FC<{
             <div className="col-lg-3 col-md-6">
               <div className="text-15 lh-12">Date</div>
               <div className="text-15 lh-12 fw-500 text-blue-1 mt-10">
-                {dayjs(data.created * 1000).format("llll")}
+                {formatDate({ date: data.created * 1000, format: "llll" })}
               </div>
             </div>
             {/* End .col */}

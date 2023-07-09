@@ -1,39 +1,55 @@
 import GuestSearch from "./GuestSearch";
 import DateSearch from "./DateSearch";
-import {
-  fetchTourAvailability,
-  // fetchTourOptionById,
-} from "@/settings/site.settings";
 import { useState } from "react";
-import { TourAvailabilityRes, TourOptionsRes } from "@/types/response-type";
+import { TourOptionsRes } from "@/types/response-type";
 // import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import { toursData } from "@/data/tours";
+import { DateObject } from "react-multi-date-picker";
 
 const Index = ({ tour }: { tour?: (typeof toursData)[0] }) => {
   const router = useRouter();
+  const [dates, setDates] = useState([
+    new DateObject().setDay(5),
+    new DateObject().setDay(14).add(1, "month"),
+  ]);
+  const [guestCounts, setGuestCounts] = useState({
+    adults: 2,
+    children: 1,
+    rooms: 1,
+  });
   const [isAvailable, setIsAvailable] = useState(false);
   const [tourOptions, setTourOptions] = useState<TourOptionsRes["touroption"]>(
     []
   );
 
   const addToCart = () => {
-    localStorage.setItem("booking-details", JSON.stringify(tour));
+    localStorage.setItem(
+      "booking-details",
+      JSON.stringify({
+        ...tour,
+        checkin: dates[0].unix,
+        checkout: dates?.[1]?.unix ?? dates[0].unix,
+        guestCounts,
+      })
+    );
     router.push("/cart");
   };
 
+  console.log(dates)
+
   const checkAvailability = async () => {
     setIsAvailable(true);
-    const response: TourAvailabilityRes = await fetchTourAvailability({
-      tourId: 1,
-      adult: 1,
-      child: 1,
-      infant: 0,
-      contractId: 1,
-      tourOptionId: 1,
-      transferId: 1,
-      travelDate: "",
-    });
+    // const response: TourAvailabilityRes = await fetchTourAvailability({
+    //   tourId: 1,
+    //   adult: 1,
+    //   child: 1,
+    //   infant: 0,
+    //   contractId: 1,
+    //   tourOptionId: 1,
+    //   transferId: 1,
+    //   travelDate: "",
+    // });
     // const message = response.result[0].message;
     // if (response.result[0].status === 1) {
     //   setIsAvailable(true);
@@ -55,7 +71,7 @@ const Index = ({ tour }: { tour?: (typeof toursData)[0] }) => {
         <div className="searchMenu-date px-20 py-10 border-light rounded-4 -right js-form-dd js-calendar">
           <div>
             <h4 className="text-15 fw-500 ls-2 lh-16">Date</h4>
-            <DateSearch />
+            <DateSearch dates={dates} setDates={setDates} />
           </div>
         </div>
         {/* End check-in-out */}
@@ -63,7 +79,10 @@ const Index = ({ tour }: { tour?: (typeof toursData)[0] }) => {
       {/* End .col-12 */}
 
       <div className="col-12">
-        <GuestSearch />
+        <GuestSearch
+          guestCounts={guestCounts}
+          setGuestCounts={setGuestCounts}
+        />
         {/* End guest */}
       </div>
       {/* End .col-12 */}
