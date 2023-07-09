@@ -1,239 +1,215 @@
-type Res = {
-  statuscode: number;
-  error: string;
-  url: string;
-  count: number;
-};
+// type Res = {
+//   statuscode: number;
+//   error: string;
+//   url: string;
+//   count: number;
+// };
 
-export interface CountryRes extends Res {
-  result: Array<{
-    countryId: number;
-    countryName: string;
-  }>;
+export interface CountryRes {
+  countryId: number;
+  countryName: string;
 }
 
-export interface CityRes extends Res {
-  result: Array<{
-    cityId: number;
-    cityName: string;
-  }>;
+export interface CityRes {
+  cityId: number;
+  cityName: string;
 }
 
-export interface ToursRes extends Res {
-  result: Array<{
+export interface ToursRes {
+  tourId: number;
+  countryId: number;
+  countryName: string;
+  cityId: number;
+  cityName: string;
+  tourName: string;
+  reviewCount: number;
+  rating: number;
+  duration: string;
+  imagePath: string;
+  imageCaptionName: string;
+  cityTourTypeId: number;
+  cityTourType: string;
+  tourShortDescription: string;
+  cancellationPolicyName: string;
+  isSlot: string;
+  onlyChild: string;
+  contractId: string;
+}
+
+export interface TourByIdRes {
+  tourId: number;
+  countryId: number;
+  countryName: string;
+  cityId: number;
+  cityName: string;
+  tourName: string;
+  reviewCount: number;
+  rating: number;
+  duration: string;
+  imagePath: string;
+  imageCaptionName: string;
+  cityTourTypeId: number;
+  cityTourType: string;
+  tourDescription: string;
+  tourInclusion: string;
+  raynaToursAdvantage: string;
+  tourShortDescription: string;
+  cancellationPolicyName: string;
+  whatsInThisTour: string;
+  importantInformation: string;
+  itenararyDescription: string;
+  usefulInformation: string;
+  faqDetails: string;
+  termsAndConditions: string;
+  childCancellationPolicyName: string;
+  childCancellationPolicyDescription: string;
+  childAge: string;
+  infantAge: string;
+  infantCount: string;
+  isSlot: string;
+  onlyChild: string;
+  contractId: string;
+  tourImages: Array<{
     tourId: number;
-    countryId: number;
-    countryName: string;
-    cityId: number;
-    cityName: string;
-    tourName: string;
-    reviewCount: number;
-    rating: number;
-    duration: string;
+    isFrontImage: number;
+    isBannerImage: number;
+    isBannerRotateImage: number;
     imagePath: string;
     imageCaptionName: string;
-    cityTourTypeId: number;
-    cityTourType: string;
-    tourShortDescription: string;
-    cancellationPolicyName: string;
-    isSlot: string;
-    onlyChild: string;
-    contractId: string;
+  }>;
+  tourReview: Array<{
+    id: number;
+    tourId: number;
+    reviewId: number;
+    rating: number;
+    reviewTitle: string;
+    reviewContent: string;
+    visitMonth: string;
+    imagePath: string;
+    guestName: string;
   }>;
 }
 
-export interface TourByIdRes extends Res {
-  result: Array<{
+export interface TourOptionsRes {
+  touroption: Array<{
     tourId: number;
+    tourOptionId: number;
     countryId: number;
-    countryName: string;
     cityId: number;
-    cityName: string;
-    tourName: string;
-    reviewCount: number;
-    rating: number;
+    minPax: number;
+    maxPax: number;
     duration: string;
-    imagePath: string;
-    imageCaptionName: string;
-    cityTourTypeId: number;
-    cityTourType: string;
-    tourDescription: string;
-    tourInclusion: string;
-    raynaToursAdvantage: string;
-    tourShortDescription: string;
-    cancellationPolicyName: string;
-    whatsInThisTour: string;
-    importantInformation: string;
-    itenararyDescription: string;
-    usefulInformation: string;
-    faqDetails: string;
-    termsAndConditions: string;
-    childCancellationPolicyName: string;
-    childCancellationPolicyDescription: string;
+    timeZone: string;
+    optionName: string;
     childAge: string;
     infantAge: string;
-    infantCount: string;
-    isSlot: string;
-    onlyChild: string;
-    contractId: string;
-    tourImages: Array<{
-      tourId: number;
-      isFrontImage: number;
-      isBannerImage: number;
-      isBannerRotateImage: number;
-      imagePath: string;
-      imageCaptionName: string;
-    }>;
-    tourReview: Array<{
-      id: number;
-      tourId: number;
-      reviewId: number;
-      rating: number;
-      reviewTitle: string;
-      reviewContent: string;
-      visitMonth: string;
-      imagePath: string;
-      guestName: string;
-    }>;
+    optionDescription: string;
+    cancellationPolicy: string;
+    cancellationPolicyDescription: string;
+    childPolicyDescription: string;
+    xmlcode: string;
+    xmloptioncode: string;
   }>;
-}
-
-export interface TourOptionsRes extends Res {
-  result: Array<{
-    touroption: Array<{
-      tourId: number;
-      tourOptionId: number;
-      countryId: number;
-      cityId: number;
-      minPax: number;
-      maxPax: number;
-      duration: string;
-      timeZone: string;
-      optionName: string;
-      childAge: string;
-      infantAge: string;
-      optionDescription: string;
-      cancellationPolicy: string;
-      cancellationPolicyDescription: string;
-      childPolicyDescription: string;
-      xmlcode: string;
-      xmloptioncode: string;
-    }>;
-    operationdays: Array<{
-      tourId: number;
-      tourOptionId: number;
-      monday: number;
-      tuesday: number;
-      wednesday: number;
-      thursday: number;
-      friday: number;
-      saturday: number;
-      sunday: number;
-    }>;
-    specialdates: [];
-    transfertime: Array<{
-      tourId: number;
-      tourOptionId: number;
-      transferType: string;
-      transferTime: string;
-      duration: string;
-    }>;
-  }>;
-}
-
-export interface TourListRes extends Res {
-  result: Array<{
-    tourId: number;
-    contractId: number;
-    amount: number;
-    discount: number;
-    sortOrder: number;
-  }>;
-}
-
-export interface TourOptionRes extends Res {
-  result: Array<{
+  operationdays: Array<{
     tourId: number;
     tourOptionId: number;
-    transferId: number;
-    adultPrice: number;
-    childPrice: number;
-    infantPrice: number;
-    withoutDiscountAmount: number;
-    finalAmount: number;
-    cutOff: number;
-    isDefaultTransfer: number;
-    inventoryId: number;
-    startTime: string;
-    departureTime: string;
-    transferName: string;
-    rateKey: string;
-    disableChild: boolean;
-    disableInfant: boolean;
-    allowTodaysBooking: boolean;
-    isSlot: boolean;
+    monday: number;
+    tuesday: number;
+    wednesday: number;
+    thursday: number;
+    friday: number;
+    saturday: number;
+    sunday: number;
   }>;
-}
-
-export interface TourTimeSlotRes extends Res {
-  result: Array<{
-    tourOptionId: number;
-    timeSlotId: number;
-    adultPrice: number;
-    childPrice: number;
-    available: number;
-    timeSlot: string;
-    isDynamicPrice: boolean;
-  }>;
-}
-
-export interface TourAvailabilityRes extends Res {
-  result: Array<{
-    status: number;
-    productType: number;
-    message: string;
-  }>;
-}
-
-export interface TourCancelationPolicyRes extends Res {
-  result: Array<{
+  specialdates: [];
+  transfertime: Array<{
     tourId: number;
-    optionId: number;
-    percentage: number;
-    fromDate: string;
-    toDate: string;
+    tourOptionId: number;
+    transferType: string;
+    transferTime: string;
+    duration: string;
   }>;
 }
 
-export interface TourBookingRes extends Res {
-  result: Array<{
-    bookingId: number;
-    refernceNo: string;
-    status: string;
-    serviceUniqueId: string;
-    servicetype: string;
-    confirmationNo: string;
-    downloadRequired: boolean;
-  }>;
+export interface TourListRes {
+  tourId: number;
+  contractId: number;
+  amount: number;
+  discount: number;
+  sortOrder: number;
 }
 
-export interface TicketDetailsRes extends Res {
-  result: Array<{
-    bookingId: number;
-    refernceNo: string;
-    BookingStatus: string;
-    ticketURL: string;
-    optionName: string;
-    validity: string;
-    validityExtraDetails: string;
-    printType: string;
-    slot: string;
-    pnrNumber: string;
-    ticketDetails: Array<{
-      barCode: string;
-      type: string;
-      noOfAdult: number;
-      noOfchild: number;
-    }>;
+export interface TourOptionRes {
+  tourId: number;
+  tourOptionId: number;
+  transferId: number;
+  adultPrice: number;
+  childPrice: number;
+  infantPrice: number;
+  withoutDiscountAmount: number;
+  finalAmount: number;
+  cutOff: number;
+  isDefaultTransfer: number;
+  inventoryId: number;
+  startTime: string;
+  departureTime: string;
+  transferName: string;
+  rateKey: string;
+  disableChild: boolean;
+  disableInfant: boolean;
+  allowTodaysBooking: boolean;
+  isSlot: boolean;
+}
+
+export interface TourTimeSlotRes {
+  tourOptionId: number;
+  timeSlotId: number;
+  adultPrice: number;
+  childPrice: number;
+  available: number;
+  timeSlot: string;
+  isDynamicPrice: boolean;
+}
+
+export interface TourAvailabilityRes {
+  status: number;
+  productType: number;
+  message: string;
+}
+
+export interface TourCancelationPolicyRes {
+  tourId: number;
+  optionId: number;
+  percentage: number;
+  fromDate: string;
+  toDate: string;
+}
+
+export interface TourBookingRes {
+  bookingId: number;
+  refernceNo: string;
+  status: string;
+  serviceUniqueId: string;
+  servicetype: string;
+  confirmationNo: string;
+  downloadRequired: boolean;
+}
+
+export interface TicketDetailsRes {
+  bookingId: number;
+  refernceNo: string;
+  BookingStatus: string;
+  ticketURL: string;
+  optionName: string;
+  validity: string;
+  validityExtraDetails: string;
+  printType: string;
+  slot: string;
+  pnrNumber: string;
+  ticketDetails: Array<{
+    barCode: string;
+    type: string;
+    noOfAdult: number;
+    noOfchild: number;
   }>;
 }
