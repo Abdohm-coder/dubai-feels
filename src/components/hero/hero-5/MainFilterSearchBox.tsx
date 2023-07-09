@@ -1,11 +1,13 @@
+import { useState } from "react";
 import Router from "next/router";
 import DateSearch from "../DateSearch";
-import GuestSearch from "./GuestSearch";
+// import GuestSearch from "./GuestSearch";
 
 const MainFilterSearchBox = () => {
+  const [tourName, setTourName] = useState("");
   const handleSubmit: React.FormEventHandler = (e) => {
     e.preventDefault();
-    Router.push("/search?keyword=");
+    Router.push(`/search?keyword=${tourName}`);
   };
 
   return (
@@ -17,7 +19,12 @@ const MainFilterSearchBox = () => {
       <div className="d-flex items-center">
         <div className="px-30 flex-fill lg:py-18 lg:px-0">
           <div className="form-input">
-            <input type="text" required />
+            <input
+              type="text"
+              required
+              value={tourName}
+              onChange={(e) => setTourName(e.target.value)}
+            />
             <label className="lh-1 text-16 text-light-1">Tour Name</label>
           </div>
         </div>
