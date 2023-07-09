@@ -3,7 +3,7 @@ import { ToursRes } from "@/types/response-type";
 import { useContext, createContext, useState, useEffect } from "react";
 
 export const DataContext = createContext<{
-  staticData: ToursRes["result"];
+  staticData: Array<ToursRes>;
   customerInfo: {
     full_name: string;
     email: string;
@@ -44,7 +44,7 @@ export const DataContext = createContext<{
 export const DataProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  const [staticData, setStaticData] = useState([]);
+  const [staticData, setStaticData] = useState<Array<ToursRes>>([]);
   const [customerInfo, setCustomerInfo] = useState({
     full_name: "",
     email: "",
@@ -55,6 +55,8 @@ export const DataProvider: React.FC<{
     zip: "",
     special_request: "",
   });
+
+  // Fetch Tours List
 
   useEffect(() => {
     const fetchData = async () => {
