@@ -45,7 +45,7 @@
   }
 
   .row {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
   &__container {
@@ -300,7 +300,7 @@
         padding: 30px;
         border-radius: 4px;
         color: var(--color-dark-1);
-        width: 800px;
+        width: 400px;
         box-shadow: 0px 10px 30px 0px #05103608;
         transition: all 0.2s $easeOutQuart;
         opacity: 0;
