@@ -47,7 +47,7 @@ const CustomerInfo: React.FC<IProps> = ({
         <div className="col-xl-7 col-lg-8 mt-30">
           <div className="py-15 px-20 rounded-4 text-15 bg-blue-1-05">
             Sign in to book with your saved details or{" "}
-            <Link href="/others-pages/signup" className="text-blue-1 fw-500">
+            <Link href="/signup" className="text-blue-1 fw-500">
               register
             </Link>{" "}
             to manage your bookings on the go!
